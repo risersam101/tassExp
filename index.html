@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="robots" content="noindex, nofollow">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Tass💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: linear-gradient(135deg, #ffc9d9 0%, #ffd4e5 50%, #ffe0ee 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-primary: #2d2d2d;
+            --text-secondary: #666;
+            --accent: #ff6b6b;
+            --button-gradient: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+            --shadow: 0 20px 60px rgba(255, 107, 157, 0.3);
+        }
+ 
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--bg-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .hearts-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float-hearts 15s infinite;
+            opacity: 0;
+        }
+
+        @keyframes float-hearts {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            animation: slideIn 0.6s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--button-gradient);
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.4s; }
+        .card:nth-child(4) { animation-delay: 0.6s; }
+        .card:nth-child(5) { animation-delay: 0.8s; }
+        .card:nth-child(6) { animation-delay: 1s; }
+        .card:nth-child(7) { animation-delay: 1.2s; }
+
+        .card-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .card-status {
+            font-size: 14px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .card-content {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .card-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card-content li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .card-content li::before {
+            content: '•';
+            color: var(--accent);
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+
+        .button {
+            background: var(--button-gradient);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-family: 'Cormorant Garamond', serif;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.5);
+        }
+
+        .button:active {
+            transform: translateY(-1px);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 50px;
+            margin-top: 25px;
+            position: relative;
+            min-height: 60px;
+        }
+
+        .button-accept {
+            flex: 2;
+            background: var(--button-gradient);
+            position: relative;
+            right: 0;
+        }
+
+        .button-reject {
+            flex: 1;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            color: #666;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            right: 0;
+            transition: all 0.3s ease;
+        }
+
+        .threat-message {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 107, 157, 0.1);
+            border-radius: 15px;
+            animation: shake 0.5s;
+        }
+
+        .threat-emoji {
+            font-size: 80px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .rejection-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .rejection-img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .final-message {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .final-message p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .heart-icon {
+            color: #ff6b9d;
+            font-size: 24px;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 30px 25px;
+            }
+
+            .card-header {
+                font-size: 28px;
+            }
+
+            .card-content {
+                font-size: 16px;
+            }
+
+            .button {
+                padding: 16px 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-background" id="heartsContainer"></div>
+    
+    <div class="container">
+        <!-- Card 1: Patient Case File -->
+        <div class="card" id="card1">
+            <div class="card-header">Afnaan's Case File</div>
+            <div class="card-status">Confidential</div>
+            <div class="card-content">
+                <p><strong>PATIENT</strong><br>
+                One (1) very lucky Boyfriend</p>
+                <p style="margin-top: 15px;"><strong>ATTENDING PHYSIO</strong><br>
+                 Taskeen Saba (Sweetyy)💕</p>
+            </div>
+            <button class="button" onclick="nextCard(1)">Open Case 📋</button>
+        </div>
+
+        <!-- Card 2: Chief Complaint -->
+        <div class="card hidden" id="card2">
+            <div class="card-header">Chief Complaint</div>
+            <div class="card-status">Ongoing</div>
+            <div class="card-content">
+                <p>Persistent warmth in the chest, weakness in the knees and Dyspnea when thinking about one incredibly intelligent, kind, hardworking, and beautiful future doctor (BPT) </p>
+            </div>
+            <button class="button" onclick="nextCard(2)">Review Symptoms 💗</button>
+        </div>
+
+        <!-- Card 3: Symptoms -->
+        <div class="card hidden" id="card3">
+            <div class="card-header">Symptoms</div>
+            <div class="card-status">Well Documented</div>
+            <div class="card-content">
+                <ul>
+                    <li>Smiling for no reason</li>
+                    <li>Feeling calm just by hearing sweety's voice</li>
+                    <li>laughing by remembering the Y-scream</li>
+                    <li>Complete certainty that you're the only one</li>
+                </ul>
+            </div>
+            <button class="button" onclick="nextCard(3)">Assessment 🔬</button>
+        </div>
+
+        <!-- Card 4: Assessment -->
+        <div class="card hidden" id="card4">
+            <div class="card-header">Assessment</div>
+            <div class="card-status">Stable</div>
+            <div class="card-content">
+                <p>Condition appears chronic and irreversible.</p>
+                <p style="margin-top: 15px;">Patient reports feeling safe, supported, and genuinely happy in your presence.</p>
+            </div>
+            <button class="button" onclick="nextCard(4)">Final Recommendation 💌</button>
+        </div>
+
+        <!-- Card 5: Final Recommendation -->
+        <div class="card hidden" id="card5">
+            <div class="card-header">Final Recommendation</div>
+            <div class="card-status">High Priority</div>
+            <div class="card-content">
+                <div class="final-message">
+                    <p>Proceed with Valentine's Day together.</p>
+                    <p>Laugh a lot.</p>
+                    <p>Eat something good with patient.</p>
+                    <p style="margin-top: 20px; font-size: 22px; font-weight: 600; color: var(--text-primary);">
+                        Will you be Patient's Valentine? <span class="heart-icon">❤️</span>
+                    </p>
+                </div>
+                <div id="threatMessage"></div>
+            </div>
+            <div class="button-group" id="buttonGroup">
+                <button class="button button-accept" id="acceptBtn" onclick="acceptDate()">Accept 💕</button>
+                <button class="button button-reject" id="rejectBtn" onclick="rejectDate()">Reject ❌</button>
+            </div>
+        </div>
+
+        <!-- Card 6: Case Closed (Accepted) -->
+        <div class="card hidden" id="card6">
+            <div class="card-header">Case Closed</div>
+            <div class="card-status">Approved</div>
+            <div class="card-content">
+                <div class="final-message">
+                    <p style="font-size: 24px; font-weight: 600; color: var(--text-primary);">Recommendation accepted.</p>
+                    <p style="margin-top: 10px;">Prognosis: Extremely good.</p>
+                    <p>Thank you,  Doctor Saba <span class="heart-icon">❤️</span></p>
+                    <p class="card-content" style="margin-top: 15px;">I can't wait to spend the rest of my life with you sweety, my love, my princess, my darling, girl of my dreams!!</p>
+                    <p style="margin-top: 30px; font-size: 28px;"><img  src="pic.jpg" alt="🎉 💕 ✨" width="400" height="450"></p>
+                    <p style="margin-top: 20px; font-size: 16px; color: var(--text-secondary);">
+                        Thank you Allah, I am really grateful to have found you sweety!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let rejectCount = 0;
+        
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heartSymbols = ['💕', '💗', '🩺','💖', '🩺','💝','🩺', '❤️', '💓','🩺'];
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 1 + 's';
+                heart.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        function nextCard(currentCard) {
+            document.getElementById(`card${currentCard}`).classList.add('hidden');
+            document.getElementById(`card${currentCard + 1}`).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function acceptDate() {
+            document.getElementById('card5').classList.add('hidden');
+            document.getElementById('card6').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Create celebration hearts
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createCelebrationHeart();
+                }, i * 100);
+            }
+        }
+
+        function rejectDate() {
+            rejectCount++;
+            const rejectBtn = document.getElementById('rejectBtn');
+            const threatMessage = document.getElementById('threatMessage');
+            const buttonGroup = document.getElementById('buttonGroup');
+            
+            if (rejectCount === 1) {
+                // First reject - sad crying cat
+                threatMessage.innerHTML = `
+                    <div class="threat-message">
+                        <span class="threat-emoji"><img src="https://media.tenor.com/ikTQ-pi_GyMAAAAi/cat-cry-kitten-cry.gif" alt="😿"  width="400" height="300"></span>
+                        <p style="font-size: 20px; color: var(--text-primary); font-weight: 600;">
+                            Oh no... really? 🥺
+                        </p>
+                        <p style="font-size: 16px; color: var(--text-secondary); margin-top: 10px;">
+                            Look how sad you're making me...
+                        </p>
+                    </div>
+                `;
+                
+                // Move reject button to a random position
+                // const positions = ['top: 0; left: 0;', 'top: 0; right: 0;', 'bottom: 0; left: 0;'];
+                // const randomPos = positions[Math.floor(Math.random() * positions.length)];
+                // rejectBtn.style.cssText = randomPos;
+                
+            } else if (rejectCount === 2) {
+                // Second reject - cat with gun and cute threat
+                threatMessage.innerHTML = `
+                    <div class="threat-message">
+                        <span class="threat-emoji"><img src="https://media1.tenor.com/m/vU85vGSqDqwAAAAC/uhh-cat.gif" alt="😾 🔫"  width="400" height="300"></span>
+                        <p style="font-size: 20px; color: var(--text-primary); font-weight: 600;">
+                            Okay, this is getting serious! 
+                        </p>
+                        <p style="font-size: 16px; color: var(--text-secondary); margin-top: 10px;">
+                            If you don't accept, I'll show you my tears... 😢💔
+                        </p>
+                        <p style="font-size: 14px; color: var(--accent); margin-top: 10px; font-style: italic;">
+                            (Please reconsider... I really want to spend Valentine's with you!)
+                        </p>
+                    </div>
+                `;
+                
+                // Move button again
+                // rejectBtn.style.top = 'auto';
+                // rejectBtn.style.bottom = '0';
+                // rejectBtn.style.left = '50%';
+                // rejectBtn.style.transform = 'translateX(-50%)';
+                // rejectBtn.style.right = 'auto';
+                
+            } else if (rejectCount >= 3) {
+                // Third reject - no more options, disable reject button
+                threatMessage.innerHTML = `
+                    <div class="threat-message">
+                        <span class="threat-emoji"><img src="https://media1.tenor.com/m/S8Vv6-uLUA0AAAAd/cute-cat.gif" alt="😤"  ></span>
+                        <p style="font-size: 22px; color: var(--text-primary); font-weight: 700;">
+                            Okay, that's it! 
+                        </p>
+                        <p style="font-size: 18px; color: var(--text-secondary); margin-top: 10px;">
+                            No more "reject" option for you! 
+                        </p>
+                        <p style="font-size: 16px; color: var(--accent); margin-top: 15px;">
+                            You HAVE to accept now 💕
+                        </p>
+                        <p style="font-size: 14px; color: var(--text-secondary); margin-top: 10px; font-style: italic;">
+                            (Because I'm not taking no for an answer! 😊)
+                        </p>
+                    </div>
+                `;
+                
+                // Disable and hide reject button
+                rejectBtn.disabled = true;
+                rejectBtn.style.display = 'none';
+                
+                
+                // Make accept button full width
+                const acceptBtn = document.getElementById('acceptBtn');
+                acceptBtn.style.flex = '1';
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function createCelebrationHeart() {
+            const heart = document.createElement('div');
+            heart.textContent = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = '100%';
+            heart.style.fontSize = '30px';
+            heart.style.animation = 'float-hearts 4s forwards';
+            heart.style.zIndex = '1000';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 3000);
+        }
+
+        // Initialize
+        createHearts();
+    </script>
+</body>
+</html>
